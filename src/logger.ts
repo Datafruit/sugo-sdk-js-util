@@ -3,7 +3,8 @@
  * @description 日志输出类：可设置输出日志层级、配置前缀、颜色
  */
 
-enum LoggerLevel {ERROR, WARN, INFO, LOG, DEBUG}
+enum LoggerLevel { ERROR, WARN, INFO, LOG, DEBUG }
+
 const LoggerColor = {
   [LoggerLevel.ERROR]: '#ff4949',
   [LoggerLevel.WARN]: '#f7ba2a',
@@ -24,7 +25,7 @@ function $console (...args: any[]) {
   }
 }
 
-class Logger {
+export class Logger {
 
   private console: LoggerConsole
   private scope: string
@@ -35,9 +36,15 @@ class Logger {
     this.scope = scope ? (scope + '->') : ''
     this.level = level
     this.console = console
-    this.color = {...LoggerColor}
+    this.color = { ...LoggerColor }
   }
 
+  /**
+   * 产生实例前缀、颜色后，再与args结合
+   * @param {LoggerLevel} level
+   * @param  {Array<*>} args
+   * @return {Array<*>}
+   */
   private prefix (level: LoggerLevel, args: any[]): any[] {
     const color = this.color[level]
     if (!color) {
@@ -54,7 +61,7 @@ class Logger {
     return [
       prefix,
       'color:' + color + ';font-weight:bold;',
-      'color:' + this.color.log
+      'color:' + this.color[LoggerLevel.LOG]
     ].concat(args)
   }
 
@@ -62,7 +69,7 @@ class Logger {
     if (this.level < level) {
       return this
     }
-    this.console(this.prefix(level, args))
+    this.console.apply(this, this.prefix(level, args))
     return this
   }
 
@@ -93,7 +100,6 @@ class Logger {
 }
 
 export {
-  Logger,
   LoggerColor,
   LoggerLevel
 }
