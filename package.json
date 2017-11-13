@@ -1,0 +1,16 @@
+{
+  "version": "0.0.0",
+  "main": "./build/main.js",
+  "description": "SugoIO SDK JavaScript utils",
+  "author": "sugo.io",
+  "repository": "",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc",
+    "prepublish": "npm run build",
+    "test": ""
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "2.6.1"
+  }
+}
