@@ -8,7 +8,7 @@ import {
 
 import Base from './base'
 import { encode as Base64Encode } from './base64'
-import * as Browser from './browser'
+import Browser from './browser'
 import { compressUrlQuery, decompressUrlQuery } from './compress'
 import * as cookie from './cookie'
 import { query, register, EventRegister } from './dom'
@@ -27,7 +27,7 @@ export default {
   base64Encode: Base64Encode,
 
   // Browser
-  ...Browser,
+  info: Browser,
 
   // compress
   compressUrlQuery,

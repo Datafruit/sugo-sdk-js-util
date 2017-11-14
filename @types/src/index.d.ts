@@ -1,3 +1,4 @@
+/// <reference types="ua-parser-js" />
 import { InheritConstructor, UniversalityConstructor, UniversalityFunction, UniversalityObject, Throttled } from './interfaces';
 import * as cookie from './cookie';
 import { EventRegister } from './dom';
@@ -28,15 +29,8 @@ declare const _default: {
     };
     $console(...args: any[]): void;
     Logger: typeof Logger.Logger;
-    compressUrlQuery: (str: string) => string;
-    decompressUrlQuery: (str: string) => string;
-    cookie: typeof cookie;
-    register_event: EventRegister;
-    dom_query: (query: any) => Element[];
-    JSONEncode: (mixed_val: string) => string;
-    JSONDecode: (source: string) => any;
-    localStorage: typeof localStorage;
-    Info: {
+    base64Encode: (data: string) => string;
+    info: {
         campaignParams: () => any;
         searchEngine: (referrer: string) => string;
         searchInfo: (referrer: string) => any;
@@ -45,12 +39,19 @@ declare const _default: {
         os: () => string;
         device: (user_agent: string) => string;
         referringDomain: (referrer: string) => string;
-        environment: () => any;
+        environment: () => IUAParser.IResult;
         properties: () => UniversalityObject;
         people_properties: () => UniversalityObject;
         pageviewInfo: (page: string) => UniversalityObject;
     };
-    base64Encode: (data: string) => string;
+    compressUrlQuery: (str: string) => string;
+    decompressUrlQuery: (str: string) => string;
+    cookie: typeof cookie;
+    register_event: EventRegister;
+    dom_query: (query: any) => Element[];
+    JSONEncode: (mixed_val: string) => string;
+    JSONDecode: (source: string) => any;
+    localStorage: typeof localStorage;
     trim: (str: string) => string;
     noop: () => void;
     tryCatch: (fn: UniversalityFunction) => UniversalityFunction;
@@ -83,6 +84,7 @@ declare const _default: {
     timestamp: () => number;
     throttle: (fn: UniversalityFunction, wait?: number) => Throttled;
     filter: (arr: any[], iterator: UniversalityFunction) => any[];
+    indexOf: (arr: any[], fount: any) => number;
     keys: (object: UniversalityObject) => string[];
     pick: (object: UniversalityObject, keyOrKeys: string | string[]) => UniversalityObject;
     omit: (object: UniversalityObject, keyOrKeys: string | string[]) => UniversalityObject;

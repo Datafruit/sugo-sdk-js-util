@@ -32,6 +32,7 @@ declare const _: {
     timestamp: () => number;
     throttle: (fn: UniversalityFunction, wait?: number) => Throttled;
     filter: (arr: any[], iterator: UniversalityFunction) => any[];
+    indexOf: (arr: any[], fount: any) => number;
     keys: (object: UniversalityObject) => string[];
     pick: (object: UniversalityObject, keyOrKeys: string | string[]) => UniversalityObject;
     omit: (object: UniversalityObject, keyOrKeys: string | string[]) => UniversalityObject;

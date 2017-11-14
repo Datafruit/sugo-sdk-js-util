@@ -200,8 +200,8 @@ const Info = {
     return ''
   },
 
-  environment: function (): any {
-    return new UAParser()
+  environment: function () {
+    return new UAParser().getResult()
   },
 
   properties: function (): UniversalityObject {

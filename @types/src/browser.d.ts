@@ -1,3 +1,4 @@
+/// <reference types="ua-parser-js" />
 import { UniversalityObject } from './interfaces';
 declare const Info: {
     campaignParams: () => any;
@@ -8,7 +9,7 @@ declare const Info: {
     os: () => string;
     device: (user_agent: string) => string;
     referringDomain: (referrer: string) => string;
-    environment: () => any;
+    environment: () => IUAParser.IResult;
     properties: () => UniversalityObject;
     people_properties: () => UniversalityObject;
     pageviewInfo: (page: string) => UniversalityObject;

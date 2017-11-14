@@ -320,8 +320,8 @@ const _ = {
       5: 'i'
     }
     const dimensionsObj: any = {}
-    serverDimensions.forEach(function (pre: any, cur: any) {
-      pre[cur.name] = DRUID_COLUMN_TYPE[cur.type]
+    _.each(serverDimensions, function (dim: any) {
+      dimensionsObj[dim.name] = DRUID_COLUMN_TYPE[dim.type]
     })
     const value = mixed_val
     const EVENTS_MAPS: { [key: string]: string } = { //事件名称映射为中文
@@ -505,7 +505,7 @@ const _ = {
 
   filter: function (arr: any[], iterator: UniversalityFunction): any[] {
     const result: any[] = []
-    arr.forEach(function (v: any, i: number) {
+    _.each(arr, function (v: any, i: number) {
       if (iterator(v, i, arr)) {
         result.push(v)
       }
@@ -513,9 +513,23 @@ const _ = {
     return result
   },
 
+  indexOf: function (arr: any[], fount: any): number {
+    const length = arr.length
+    let i: number
+    let temp: any
+
+    for (i = 0; i < length; i++) {
+      temp = arr[i]
+      if (temp === fount) {
+        return i
+      }
+    }
+    return -1
+  },
+
   keys: function (object: UniversalityObject): string[] {
     if (nativeKeys) {
-      return nativeKeys.call(object)
+      return nativeKeys.call(Object, object)
     }
     const results: string[] = []
     for (let prop in object) {
@@ -535,7 +549,7 @@ const _ = {
     }
 
     const result: UniversalityObject = {}
-    keys.forEach(function (key: string) {
+    _.each(keys, function (key: string) {
       result[key] = object[key]
     })
     return result
@@ -550,8 +564,8 @@ const _ = {
     } else {
       keys = keyOrKeys
     }
-    return _.pick(object, oKeys.filter(function (key) {
-      return keys.indexOf(key) < 0
+    return _.pick(object, _.filter(oKeys, function (key) {
+      return _.indexOf(keys, key) < 0
     }))
   },
 
@@ -564,7 +578,7 @@ const _ = {
 
     for (; i < len; i++) {
       tmp = arr[i]
-      if (dup.indexOf(tmp) === -1) {
+      if (_.indexOf(dup, tmp) === -1) {
         dup.push(tmp)
         ret.push(tmp)
       }
