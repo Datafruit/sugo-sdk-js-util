@@ -1,9 +1,10 @@
 {
+  "name": "sugo-sdk-js-utils",
   "version": "0.0.0",
   "main": "./build/src/index.js",
   "description": "SugoIO SDK JavaScript utils",
   "author": "sugo.io",
-  "repository": "",
+  "repository": "https://github.com/CoinXu/sugo-sdk-js-util.git",
   "typings": "./@types/src/index.d.ts",
   "scripts": {
     "build": "./node_modules/.bin/tsc",
