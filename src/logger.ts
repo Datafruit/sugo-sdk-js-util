@@ -3,9 +3,9 @@
  * @description 日志输出类：可设置输出日志层级、配置前缀、颜色
  */
 
-enum LoggerLevel { ERROR, WARN, INFO, LOG, DEBUG }
+export enum LoggerLevel { ERROR, WARN, INFO, LOG, DEBUG }
 
-const LoggerColor = {
+export const LoggerColor = {
   [LoggerLevel.ERROR]: '#ff4949',
   [LoggerLevel.WARN]: '#f7ba2a',
   [LoggerLevel.INFO]: '#50bfff',
@@ -17,7 +17,7 @@ interface LoggerConsole {
   (...args: any[]): any
 }
 
-function $console (...args: any[]) {
+export function $console (...args: any[]) {
   // 兼容旧版ie必须做apply是函数的判断
   const console = window.console
   if (console && console.log && typeof console.log.apply === 'function') {
@@ -97,9 +97,4 @@ export class Logger {
   public debug (...args: any[]) {
     return this.wrapper(LoggerLevel.DEBUG, args)
   }
-}
-
-export {
-  LoggerColor,
-  LoggerLevel
 }

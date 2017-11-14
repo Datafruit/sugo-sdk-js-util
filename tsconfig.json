@@ -6,7 +6,9 @@
     "preserveConstEnums": true,
     "target": "es3",
     "outDir": "./build",
-    "sourceMap": true
+    "sourceMap": true,
+    "declaration": true,
+    "declarationDir": "./@types"
   },
   "include": [
     "src/**/*",

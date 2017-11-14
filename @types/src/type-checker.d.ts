@@ -1,0 +1,11 @@
+export declare function isBrowser(): boolean;
+export declare function isFunction(f: any): boolean;
+export declare function isArguments(obj: any): boolean;
+export declare function isString(obj: any): boolean;
+export declare function isDate(obj: any): boolean;
+export declare function isNumber(obj: any): boolean;
+export declare function isElement(obj: any): boolean;
+export declare function isObject(obj: any): boolean;
+export declare function isEmptyObject(obj: any): boolean;
+export declare function isUndefined(obj: any): boolean;
+export declare const isArray: (obj: any) => boolean;
