@@ -15,8 +15,23 @@ export function isBrowser(): boolean {
   return is
 }
 
+// from a comment on http://dbj.org/dbj/?p=286
+// fails on only one very rare and deliberate custom object:
+// var bomb = { toString : undefined, valueOf: function(o) { return "function BOMBA!"; }};
+// but error in es6...
+// example:
+// ```js
+// var fn = () => {}
+// _.isFunction(fn) // false
+//```
+// But fn is a really really function
+
 export function isFunction(f: any): boolean {
-  return typeof f === 'function'
+  try {
+    return /^\s*\bfunction\b/.test(f)
+  } catch (x) {
+    return false
+  }
 }
 
 export function isArguments(obj: any): boolean {

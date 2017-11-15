@@ -219,7 +219,7 @@ const Info = {
         'browser_version': env.browser.major,
         'screen_height': screen.height,
         'screen_width': screen.width,
-        'sugo_lib': 'web',
+        'sugo_lib': 'web'
         // TODO LIB_VERSION
         // 'sdk_version': Config.LIB_VERSION
       })
