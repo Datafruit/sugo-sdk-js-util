@@ -4,6 +4,7 @@
 
 import { Logger, LoggerLevel } from './logger'
 import * as Type from './type-checker'
+import * as Sizzle from 'sizzle'
 
 const logger = new Logger('DOM').setLevel(LoggerLevel.ERROR)
 
@@ -303,4 +304,8 @@ export const query = (function () {
     }
   }
 })()
+
+export function querySelectorAll(selector: string, context?: Element | Document | DocumentFragment): Element[] {
+  return Sizzle(selector, context)
+}
 

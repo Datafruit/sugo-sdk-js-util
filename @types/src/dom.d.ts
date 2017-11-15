@@ -3,3 +3,4 @@ export interface EventRegister {
 }
 export declare const register: EventRegister;
 export declare const query: (query: any) => Element[];
+export declare function querySelectorAll(selector: string, context?: Element | Document | DocumentFragment): Element[];

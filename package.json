@@ -1,6 +1,6 @@
 {
   "name": "sugo-sdk-js-utils",
-  "version": "0.0.8",
+  "version": "0.0.11",
   "main": "./build/src/index.js",
   "description": "SugoIO SDK JavaScript utils",
   "author": "sugo.io",
@@ -10,6 +10,10 @@
     "build": "./node_modules/.bin/tsc",
     "test": "npm run build && ./node_modules/.bin/mocha ./build/__test__",
     "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "sizzle": "2.3.3",
+    "@types/sizzle": "2.3.1"
   },
   "license": "ISC",
   "devDependencies": {

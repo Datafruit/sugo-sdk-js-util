@@ -49,6 +49,7 @@ declare const _default: {
     cookie: typeof cookie;
     register_event: EventRegister;
     dom_query: (query: any) => Element[];
+    querySelectorAll: (selector: string, context?: Element | Document | DocumentFragment) => Element[];
     JSONEncode: (mixed_val: string) => string;
     JSONDecode: (source: string) => any;
     localStorage: typeof localStorage;

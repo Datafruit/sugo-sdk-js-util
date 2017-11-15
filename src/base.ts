@@ -169,7 +169,7 @@ const _ = {
       return found
     }
     if (nativeIndexOf && obj.indexOf === nativeIndexOf) {
-      return obj.indexOf(target) > -1
+      return _.indexOf(obj, target) > -1
     }
     _.each(obj, function (value) {
       if (found || (found = (value === target))) {

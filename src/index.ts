@@ -11,7 +11,7 @@ import { encode as Base64Encode } from './base64'
 import Browser from './browser'
 import { compressUrlQuery, decompressUrlQuery } from './compress'
 import * as cookie from './cookie'
-import { query, register, EventRegister } from './dom'
+import { query, register, EventRegister, querySelectorAll } from './dom'
 import { JSONDecode, JSONEncode } from './json'
 import * as localStorage from './localStorage'
 import * as Logger from './logger'
@@ -39,6 +39,7 @@ export default {
   // dom
   register_event: register,
   dom_query: query,
+  querySelectorAll,
 
   // json
   JSONEncode,
