@@ -53,7 +53,7 @@ const _ = {
     return str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '')
   },
 
-  noop: function () { },
+  noop: function (...args: any[]): void { },
 
   tryCatch: function (fn: UniversalityFunction): UniversalityFunction {
     return function () {
@@ -65,7 +65,7 @@ const _ = {
     }
   },
 
-  identity: function (value: any): any {
+  identity: function <T>(value: T): T {
     return value
   },
 
@@ -306,7 +306,7 @@ const _ = {
     _dimensions: Array<any>,
     serverDimensions: any[],
     ConfigDimensions: any[]
-  ) {
+  ): string | null {
     if (!serverDimensions || serverDimensions.length < 1) {
       return null
     }
