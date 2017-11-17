@@ -331,7 +331,9 @@ const _ = {
       focus: '对焦',
       view: '浏览',
       duration: '停留',
-      pageloading: '加载'
+      pageloading: '加载',
+      first_visit: '首次访问',
+      first_login: '首次登录'
     }
     const HEADER_SPLIT = '\x02' //\002
     const CONTENT_SPLIT = '\x01' //\001
