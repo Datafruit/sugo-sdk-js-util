@@ -1,9 +1,9 @@
 import { UniversalityFunction, UniversalityObject, UniversalityConstructor, InheritConstructor, Throttled } from './interfaces';
 declare const _: {
     trim: (str: string) => string;
-    noop: () => void;
+    noop: (...args: any[]) => void;
     tryCatch: (fn: UniversalityFunction) => UniversalityFunction;
-    identity: (value: any) => any;
+    identity: <T>(value: T) => T;
     bind: (func: UniversalityFunction, context: any) => UniversalityFunction;
     bind_instance_methods: (obj: {
         [key: string]: UniversalityFunction;

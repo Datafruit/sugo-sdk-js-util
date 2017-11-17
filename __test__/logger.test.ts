@@ -5,8 +5,8 @@
  */
 
 import 'mocha'
-import { Logger, LoggerLevel, LoggerColor } from '../src/logger'
 import { ok, equal } from 'assert'
+import { Logger, LoggerLevel, LoggerColor } from '../src/logger'
 
 describe('Logger Class Test Case', function () {
 
