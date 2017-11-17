@@ -51,7 +51,7 @@ export class Logger {
       return args
     }
 
-    let prefix = '%c' + (this.scope || '') + '[' + level + ']%c: '
+    let prefix = '%c' + (this.scope || '') + '[' + LoggerLevel[level] + ']%c: '
     let first = args[0]
     if (typeof first === 'string') {
       prefix = prefix + first
