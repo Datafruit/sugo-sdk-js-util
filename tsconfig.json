@@ -8,7 +8,10 @@
     "outDir": "./build",
     "sourceMap": true,
     "declaration": true,
-    "declarationDir": "./@types"
+    "declarationDir": "./@types",
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*",

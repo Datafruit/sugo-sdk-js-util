@@ -1,4 +1,3 @@
-
 import {
   UniversalityFunction,
   UniversalityObject,
@@ -6,19 +5,10 @@ import {
   InheritConstructor,
   Throttled
 } from './interfaces'
-import { Logger as LoggerConstructor, LoggerLevel } from './logger'
+import {Logger as LoggerConstructor, LoggerLevel} from './logger'
 import * as Type from './type-checker'
 
 const Logger = new LoggerConstructor('utils').setLevel(LoggerLevel.WARN)
-
-let win: any
-if (!Type.isBrowser()) {
-  win = {
-    navigator: {}
-  }
-} else {
-  win = window
-}
 
 /*
  * Saved references to long variable names, so that closure compiler can
@@ -29,19 +19,13 @@ const
   FuncProto = Function.prototype,
   ObjProto = Object.prototype,
   slice = ArrayProto.slice,
-  toString = ObjProto.toString,
-  hasOwnProperty = ObjProto.hasOwnProperty,
-  windowConsole = win.console,
-  navigator = win.navigator,
-  document = win.document,
-  userAgent = navigator.userAgent
+  hasOwnProperty = ObjProto.hasOwnProperty
 
 const
   nativeBind = FuncProto.bind,
   nativeForEach = ArrayProto.forEach,
   nativeIndexOf = ArrayProto.indexOf,
   nativeKeys = Object.keys,
-  nativeIsArray = Array.isArray,
   breaker = {}
 
 //
@@ -65,7 +49,7 @@ const _ = {
     }
   },
 
-  identity: function <T>(value: T): T {
+  identity: function <T> (value: T): T {
     return value
   },
 
@@ -129,7 +113,7 @@ const _ = {
 
   formatDate: function (d: Date): string {
     // YYYY-MM-DDTHH:MM:SS in UTC
-    function pad(n: number) {
+    function pad (n: number) {
       return n < 10 ? '0' + n : n
     }
 
@@ -301,12 +285,10 @@ const _ = {
     return ret
   },
 
-  PlainEncode: function (
-    mixed_val: string,
+  PlainEncode: function (mixed_val: string,
     _dimensions: Array<any>,
     serverDimensions: any[],
-    ConfigDimensions: any[]
-  ): string | null {
+    ConfigDimensions: any[]): string | null {
     if (!serverDimensions || serverDimensions.length < 1) {
       return null
     }
@@ -358,8 +340,8 @@ const _ = {
           //   dim = target_key ? target_key : dim
           // }
           if (dimensionsObj[k]) {
-            var _key = dimensionsObj[k] + '|' + k
-            var val = item
+            let _key = dimensionsObj[k] + '|' + k
+            let val = item
             if (k === 'event_type') {
               val = EVENTS_MAPS[item]
               if (val === void 0) {
@@ -378,19 +360,15 @@ const _ = {
     const results = formatFn(value)
     let keys: any[] = [], vals: any[] = []
     _.each(results, function (val, idx) {
-      var arr = val.split(HEADER_SPLIT)
+      let arr = val.split(HEADER_SPLIT)
       keys.push(arr[0])
       vals.push(arr[1])
     })
-    const res = keys.join(',') + HEADER_SPLIT + vals.join(CONTENT_SPLIT)
-    return res
+    return keys.join(',') + HEADER_SPLIT + vals.join(CONTENT_SPLIT)
   },
 
   isBlockedUA: function (ua: string): boolean {
-    if (/(google web preview|baiduspider|yandexbot|bingbot|googlebot|yahoo! slurp)/i.test(ua)) {
-      return true
-    }
-    return false
+    return /(google web preview|baiduspider|yandexbot|bingbot|googlebot|yahoo! slurp)/i.test(ua)
   },
 
   HTTPBuildQuery: function (formdata: any, arg_separator?: string): string {
@@ -415,7 +393,8 @@ const _ = {
   getQueryParam: function (url: string, param: string): string {
     // Expects a raw URL
     param = param.replace(/[\[]/, '\\\[').replace(/[\]]/, '\\\]')
-    var regexS = '[\\?&]' + param + '=([^&#]*)',
+    let
+      regexS = '[\\?&]' + param + '=([^&#]*)',
       regex = new RegExp(regexS),
       results = regex.exec(url)
     if (results === null || (results && typeof (results[1]) !== 'string' && results[1].length)) {
@@ -432,8 +411,8 @@ const _ = {
 
   timestamp: function (): number {
     Date.now = Date.now || function () {
-      return +new Date
-    }
+        return +new Date
+      }
     return Date.now()
   },
 

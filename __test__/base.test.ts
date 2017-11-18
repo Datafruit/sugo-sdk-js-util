@@ -5,9 +5,9 @@
  */
 
 import 'mocha'
-import { ok, equal } from 'assert'
+import {ok, equal} from 'assert'
 import _ from '../src/base'
-import { UniversalityFunction } from '../src/interfaces'
+import {UniversalityFunction} from '../src/interfaces'
 
 describe('Base Test cases', function () {
   describe('_.trim(str: string): string', function () {
@@ -53,7 +53,7 @@ describe('Base Test cases', function () {
       [function () { throw new Error('message') }, 'message'],
       [function () { return 1 }, 1],
       [function () { return null }, null],
-      [function () { throw { message: 0 } }, 0]
+      [function () { throw {message: 0} }, 0]
     ]
     cases.forEach(function ([fn, result]) {
       it(`_.tryCatch(${fn.toString()}) called should return ${result}`, function () {
@@ -82,8 +82,9 @@ describe('Base Test cases', function () {
 
   describe('_.bind(func: UniversalityFunction): UniversalityFunction', function () {
     const arr: string[] = ['a']
-    const obj: { [key: string]: string } = { 'k': 'v' }
-    function fn<T>(): T { return this }
+    const obj: { [key: string]: string } = {'k': 'v'}
+
+    function fn<T> (): T { return this }
 
     const cases: [UniversalityFunction, any][] = [
       [_.bind(fn, 0), 0],
@@ -164,6 +165,26 @@ describe('Base Test cases', function () {
       it(`_.escapeHTML('${input}') should return '${output}'`, function () {
         equal(_.escapeHTML(input), output)
       })
+    })
+  })
+
+  describe('_.formatDate(d:string): string', function () {
+
+    const date = new Date()
+    const year = date.getUTCFullYear()
+    const mouth = date.getUTCMonth() + 1
+    const day = date.getUTCDate()
+    const hour = date.getUTCHours()
+    const minute = date.getUTCMinutes()
+    const second = date.getSeconds()
+
+    function pad (n: number): string {
+      return n < 10 ? `0${n}` : n.toString()
+    }
+
+    const results: string = `${year}-${pad(mouth)}-${pad(day)}T${pad(hour)}:${pad(minute)}:${pad(second)}`
+    it(`_.formatDate(${date}) should return ${results}`, function () {
+      equal(results, _.formatDate(date))
     })
   })
 })
