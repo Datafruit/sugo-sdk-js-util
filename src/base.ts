@@ -293,13 +293,39 @@ const _ = {
       return null
     }
     // 维度类型：0=long,1=float,2=string;3=dateString;4=date
+    // const DruidColumnType = {
+    //   Long: 0,
+    //   Float: 1,
+    //   String: 2,
+    //   DateString: 3,
+    //   Date: 4,
+    //   Int: 5,
+    //   Text: 6,
+    //   Double: 7,
+    //   BigDecimal: 8
+    // }
+
+    // const DIMENSION_TYPES_MINI_MAP = {
+    //   int: 'i',
+    //   long: 'l',
+    //   float: 'f',
+    //   date: 'd',
+    //   string: 's',
+    //   text: 't',
+    //   double: 'f',
+    //   bigdecimal: 'f'
+    // }
+
     const DRUID_COLUMN_TYPE: { [key: number]: string } = {
       0: 'l',
       1: 'f',
       2: 's',
       3: 's',
       4: 'd',
-      5: 'i'
+      5: 'i',
+      6: 's',
+      7: 'f',
+      8: 'f'
     }
     const dimensionsObj: any = {}
     _.each(serverDimensions, function (dim: any) {
