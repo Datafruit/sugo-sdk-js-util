@@ -1,6 +1,6 @@
 {
   "name": "sugo-sdk-js-utils",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "main": "./build/src/index.js",
   "description": "SugoIO SDK JavaScript utils",
   "author": "sugo.io",
@@ -19,7 +19,7 @@
   "devDependencies": {
     "typescript": "2.6.1",
     "lz-string": "1.4.4",
-    "ua-parser-js": "0.7.17",
+    "ua-parser-js": "0.7.18",
     "mocha": "4.0.1",
     "@types/mocha": "^2.2.44",
     "@types/node": "*",

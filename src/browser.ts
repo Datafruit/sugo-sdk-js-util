@@ -208,43 +208,44 @@ const Info = {
     const env: any = Info.environment()
 
     return Base.extend(Base.strip_empty_properties({
-      'system_version': env.os.version,
-      'system_name': env.os.name,
-      'browser': env.browser.name,
-      'referring_domain': Info.referringDomain(document.referrer),
-      'device_model': env.device.model
+      system_version: env.os.version,
+      system_name: env.os.name,
+      browser: env.browser.name,
+      referring_domain: Info.referringDomain(document.referrer),
+      device_model: env.device.model
     }), {
-        'event_time': Base.timestamp(),// client date
-        'current_url': window.location.href,
-        'browser_version': env.browser.major,
-        'screen_height': screen.height,
-        'screen_width': screen.width,
-        'sugo_lib': 'web'
+        event_time: Base.timestamp(),// client date
+        current_url: window.location.href,
+        browser_version: env.browser.major,
+        // screen_height: screen.height,
+        // screen_width: screen.width,
+        screen_pixel: `${screen.width}*${screen.height}`, // 客户端屏幕分辨率（格式：屏幕宽度*屏幕高度）
+        sugo_lib: 'web'
         // TODO LIB_VERSION
-        // 'sdk_version': Config.LIB_VERSION
+        // sdk_version: Config.LIB_VERSION
       })
   },
 
   people_properties: function (): UniversalityObject {
     const _window: any = window
     return Base.extend(Base.strip_empty_properties({
-      'system_name': Info.os(),
-      'browser': Info.browser(userAgent, navigator.vendor, _window.opera),
-      'browser_version': Info.browserVersion(userAgent, navigator.vendor, _window.opera)
+      system_name: Info.os(),
+      browser: Info.browser(userAgent, navigator.vendor, _window.opera),
+      browser_version: Info.browserVersion(userAgent, navigator.vendor, _window.opera)
     }))
   },
 
   pageviewInfo: function (page: string): UniversalityObject {
     const _window: any = window
     return Base.strip_empty_properties({
-      'event_type': 'pageloading',
-      'event_time': Base.timestamp(),// client date
-      'device_agent': Info.os(),
-      'path_name': page,
-      'page_name': document.title,
-      'current_url': window.location.href,
-      'browser': Info.browser(userAgent, navigator.vendor, _window.opera),
-      'browser_version': Info.browserVersion(userAgent, navigator.vendor, _window.opera)
+      event_type: 'pageloading',
+      event_time: Base.timestamp(),// client date
+      device_agent: Info.os(),
+      path_name: page,
+      page_name: document.title,
+      current_url: window.location.href,
+      browser: Info.browser(userAgent, navigator.vendor, _window.opera),
+      browser_version: Info.browserVersion(userAgent, navigator.vendor, _window.opera)
     })
   }
 }
