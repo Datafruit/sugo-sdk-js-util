@@ -336,6 +336,7 @@ const _ = {
       click: '点击',
       change: '改变',
       // submit: '提交',
+      onclick_point: '屏幕点击',
       focus: '对焦',
       view: '浏览',
       duration: '停留',
@@ -369,7 +370,7 @@ const _ = {
             let _key = dimensionsObj[k] + '|' + k
             let val = item
             if (k === 'event_type') {
-              val = EVENTS_MAPS[item]
+              val = EVENTS_MAPS[item] || item
               if (val === void 0) {
                 Logger.warn('event_type is undefined!')
               }
