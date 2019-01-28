@@ -8,6 +8,7 @@ declare const Info: {
     browserVersion: (userAgent: string, vendor: string, opera: boolean) => number;
     os: () => string;
     device: (user_agent: string) => string;
+    isMobile: () => boolean;
     referringDomain: (referrer: string) => string;
     environment: () => IUAParser.IResult;
     properties: () => UniversalityObject;
