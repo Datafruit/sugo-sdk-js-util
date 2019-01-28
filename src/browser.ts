@@ -192,6 +192,10 @@ const Info = {
     }
   },
 
+  isMobile: function (): boolean {
+    return Info.environment().device.type === 'mobile'
+  },
+
   referringDomain: function (referrer: string): string {
     const split: string[] = referrer.split('/')
     if (split.length >= 3) {
